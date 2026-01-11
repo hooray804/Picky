@@ -20,7 +20,7 @@
 
 | 기능 | Picky (기본) | Picky Advanced |
 | :--- | :--- | :--- |
-| **핵심 용도** | 일회성 요소 분석 및 추출 | 요소 분석 및 개인화된 차단 규칙 적용 |
+| **핵심 용도** | 요소 분석 및 CSS 추출 | 요소 분석 및 개인화된 차단 규칙 적용 |
 | **요소 차단** | 일시적 숨김 (새로고침 시 복구) | 스크립트 내 규칙 저장 및 차단 지속 |
 | **실행 리소스** | 작음 | 상대적으로 큼 |
 | **권한 요구** | `none` | `GM_setValue`, `GM_getValue` |
@@ -39,7 +39,7 @@
 
 1. 설치 후 웹사이트에 접속하면 자동으로 스크립트가 로드됩니다.
 2. 화면에 나타나는 Picky UI를 통해 요소를 클릭하거나 탭하여 선택합니다.
-3. **URL 버튼**: 생성된 선택자를 클립보드에 복사합니다.
+3. **CSS 버튼**: 생성된 선택자를 클립보드에 복사합니다.
 4. **규칙 버튼**: 생성된 선택자에서 도메인을 포함한 광고 차단 규칙을 클립보드에 복사합니다.
 5. **차단 버튼 (Advanced 전용)**: 광고나 방해 요소를 선택한 후 클릭하면 해당 사이트에서 영구적으로 숨겨집니다.
 6. **리셋 버튼**: 선택을 해제하고 초기 상태로 돌아갑니다.
@@ -50,7 +50,14 @@
 
 ## 6. 스크린샷
 
+* Picky 기본 화면
 ![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
+
+* 페이지 HTML 보기
 ![IMG_2651](https://github.com/user-attachments/assets/babd851c-47a0-4190-b734-045af7440812)
+
+* Picky Advanced의 설정 화면
 ![IMG_2650](https://github.com/user-attachments/assets/095ab8a7-b6e1-47e5-bea0-a70f19410aaa)
+
+* URL 버튼 이용
 ![IMG_2646](https://github.com/user-attachments/assets/a4ae14b2-7c0d-4db3-b07d-78daf5586da2)
