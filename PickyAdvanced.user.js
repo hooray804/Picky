@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.1
+// @version      1.2
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @match        *://*/*
 // @grant        GM_setValue
 // @grant        GM_getValue
-// @updateURL    https://github.com/hooray804/Picky/raw/main/PickyAdvanced.user.js
-// @downloadURL  https://github.com/hooray804/Picky/raw/main/PickyAdvanced.user.js
+// @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
+// @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @supportURL   https://github.com/hooray804/Picky/issues
 // ==/UserScript==
 
@@ -468,6 +468,7 @@
         showFp() { let c = "--- 브라우저/시스템 ---\n"; try { c += `User Agent: ${navigator.userAgent}\n언어: ${navigator.language}\n시간대: ${Intl.DateTimeFormat().resolvedOptions().timeZone}\n스레드 수: ${navigator.hardwareConcurrency || 'N/A'}\n메모리(GB): ${navigator.deviceMemory || 'N/A'}\n\n--- 화면 ---\n`; c += `해상도: ${screen.width}x${screen.height}\n사용 가능: ${screen.availWidth}x${screen.availHeight}\n색상 깊이: ${screen.colorDepth}\n픽셀 비율: ${devicePixelRatio}\n\n--- 렌더링 ---\n`; const gl = document.createElement('canvas').getContext('webgl'); const dbg = gl.getExtension('WEBGL_debug_renderer_info'); c += `WebGL 벤더: ${gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL)}\nWebGL 렌더러: ${gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)}\n\n`; } catch (e) {} c += "--- 네트워크 (Performance API) ---\n"; const r = performance.getEntriesByType('resource'); c += `${r.length}개 리소스 요청됨.\n\n`; r.slice(0, 20).forEach(res => { c += `[${res.initiatorType}] ${res.name} (${Math.round(res.duration)}ms)\n`; }); this.Modal.show('핑거프린팅 정보', c); },
         
         run() {
+            this.Blocker.init();
             this.b = { 
                 onPick: this.onPick.bind(this), 
                 onSelStart: this.onSelStart.bind(this), 
