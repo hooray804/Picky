@@ -1,6 +1,10 @@
 # Picky
 
 웹 요소 검사 및 광고 차단을 위한 CSS 선택자 추출 기능을 가진 유저스크립트 도구입니다. 모바일 환경에서도 즉시 요소를 선택하여 분석하고, 최적화된 CSS 선택자를 생성할 수 있습니다. 웹페이지 소스 코드 또한 볼 수 있으며, 특히 Advanced 버전은 선택한 방해 요소를 해당 사이트에서 영구적으로 숨기는 차단 기능을 제공합니다.
+
+> [!NOTE]
+> **Picky Advanced에는 Picky의 모든 기능이 포함되어 있습니다.** 두 버전을 모두 설치하여 사용하지 마세요.
+> 
 * [Picky 설치](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 * [Picky Advanced 설치](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 
@@ -44,11 +48,11 @@
 5. **차단 버튼 (Advanced 전용)**: 광고나 방해 요소를 선택한 후 클릭하면 해당 사이트에서 영구적으로 숨겨집니다.
 6. **리셋 버튼**: 선택을 해제하고 초기 상태로 돌아갑니다.
 
-## 5. 라이선스
+## 5. License
 
 이 프로젝트는 Mozilla Public License 2.0 (MPL-2.0)을 따릅니다.
 
-## 6. 스크린샷
+## 6. Screenshots
 
 * Picky 기본 화면
 ![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
