@@ -1,14 +1,14 @@
 # Picky
 
-한국어 | [English](https://github.com/hooray804/Picky/blob/main/README.md)
+한국어 | [English(영어)](https://github.com/hooray804/Picky/blob/main/README.md)
 
 웹 요소 검사 및 광고 차단을 위한 CSS 선택자 추출 기능을 가진 유저스크립트 도구입니다. 모바일 환경에서도 즉시 요소를 선택하여 분석하고, 최적화된 CSS 선택자를 생성할 수 있습니다. 웹페이지 소스 코드 또한 볼 수 있으며, 특히 Advanced 버전은 선택한 방해 요소를 해당 사이트에서 영구적으로 숨기는 차단 기능을 제공합니다.
 
 > [!NOTE]
 > **Picky Advanced에는 Picky의 모든 기능이 포함되어 있습니다.** 두 버전을 모두 설치하여 사용하지 마세요.
 > 
-* [Picky 설치](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
-* [Picky Advanced 설치](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
+* [Picky 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
+* [Picky Advanced 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 
 * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 
