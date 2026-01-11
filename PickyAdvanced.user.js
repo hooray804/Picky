@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.2
+// @version      1.3
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @match        *://*/*
@@ -292,9 +292,9 @@
                 <button data-action="showSource" data-type="css">CSS</button>
                 <button data-action="showSource" data-type="js">JS</button>
                 <button data-action="showCookies">쿠키</button>
-                <button data-action="showFp">FP 정보</button>
-                <button data-action="moveTop">UI 상단</button>
-                <button data-action="moveBottom">UI 하단</button>
+                <button data-action="showFp">핑거프린팅</button>
+                <button data-action="moveTop">UI 상단으로</button>
+                <button data-action="moveBottom">UI 하단으로</button>
             </div>`; 
         },
 
