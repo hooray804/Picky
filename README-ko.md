@@ -10,6 +10,8 @@
 * [Picky 설치](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 * [Picky Advanced 설치](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 
+* [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
+
 ## 1. 주요 기능
 
 * **지능형 CSS 선택자 생성**: ID, 클래스, 속성(data-test 등), nth-of-type을 분석하여 가장 고유한 선택자를 추천합니다.
@@ -37,8 +39,9 @@
 
 1. 유저스크립트 관리자를 설치합니다.
 2. 아래 링크 중 원하는 버전의 파일을 클릭하거나 URL을 복사합니다.
-    * [Picky 설치](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
-    * [Picky Advanced 설치](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
+    * [Picky 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
+    * [Picky Advanced 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
+    * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 3. 브라우저에 표시되는 '설치(Install)' 버튼을 클릭하거나 유저스크립트 관리자에서 적용합니다.
 
 ## 4. 사용 방법
