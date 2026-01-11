@@ -47,3 +47,10 @@
 ## 5. 라이선스
 
 이 프로젝트는 Mozilla Public License 2.0 (MPL-2.0)을 따릅니다.
+
+## 6. 스크린샷
+
+![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
+![IMG_2651](https://github.com/user-attachments/assets/babd851c-47a0-4190-b734-045af7440812)
+![IMG_2650](https://github.com/user-attachments/assets/095ab8a7-b6e1-47e5-bea0-a70f19410aaa)
+![IMG_2646](https://github.com/user-attachments/assets/a4ae14b2-7c0d-4db3-b07d-78daf5586da2)
