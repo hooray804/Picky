@@ -8,7 +8,6 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 > **Picky Advanced includes all the features of Picky.** Do not install and use both versions simultaneously.
 
 * [Install Picky Advanced (English)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
-
 * [Install Picky (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 
