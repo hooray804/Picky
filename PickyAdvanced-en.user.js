@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.4
+// @version      1.5
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -83,12 +83,27 @@
                 }
                 return false;
             },
+            remove(selector) {
+                const rules = GM_getValue('picky_blocked_rules', {});
+                const host = window.location.hostname;
+                if (rules[host]) {
+                    rules[host] = rules[host].filter(r => r !== selector);
+                    if (rules[host].length === 0) delete rules[host];
+                    GM_setValue('picky_blocked_rules', rules);
+                    this.apply();
+                    return true;
+                }
+                return false;
+            },
             apply() {
                 const rules = this.getRules();
-                if (!rules.length) return;
-                
                 const styleId = 'picky-blocker-style';
                 let style = document.getElementById(styleId);
+                if (!rules.length) {
+                    if (style) style.remove();
+                    return;
+                }
+                
                 if (!style) {
                     style = document.createElement('style');
                     style.id = styleId;
@@ -285,7 +300,7 @@
             <div class="picky-setting-title">Advanced Features</div>
             <div class="picky-setting-item"><span>Shadow DOM Support</span><label class="picky-switch"><input type="checkbox" data-cfg-key="shadowDomSupport" ${c.shadowDomSupport ? 'checked' : ''}><span class="picky-slider"></span></label></div>
             <div class="picky-setting-title">Ad Block Management</div>
-            <div class="picky-button-grid" style="margin-top:8px;"><button data-action="resetBlocks" style="grid-column: 1 / -1; background-color: var(--pk-err); color: #fff;">Reset block rules for this site</button></div>
+            <div class="picky-button-grid" style="margin-top:8px; grid-template-columns: 1fr 1fr;"><button data-action="showBlockRules">Show Rules</button><button data-action="resetBlocks" style="background-color: var(--pk-err); color: #fff;">Reset Rules</button></div>
             
             <div class="picky-setting-title">Developer Tools & UI</div>
             <div class="picky-button-grid" style="grid-template-columns: repeat(3, 1fr); gap: 6px;">
@@ -365,6 +380,28 @@
                     } else {
                         alert('This element cannot be selected.');
                     }
+                },
+                showBlockRules: () => {
+                    const renderList = () => {
+                        const rules = this.Blocker.getRules();
+                        if (rules.length === 0) return '<div style="padding:20px;text-align:center;color:var(--pk-on-surf-var);">No saved block rules.</div>';
+                        const items = rules.map(r => `
+                            <li style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px; border-bottom:1px solid var(--pk-outl);">
+                                <span style="word-break:break-all; font-family:monospace; font-size:11px; flex:1;">${r}</span>
+                                <button data-rule="${r}" style="background-color:var(--pk-err); color:#fff; padding:4px 8px; font-size:11px; border-radius:8px; flex-shrink:0;">Delete</button>
+                            </li>`).join('');
+                        return `<ul class="picky-child-list" style="max-height:50vh; overflow-y:auto; padding:0;">${items}</ul>`;
+                    };
+                    this.Modal.show('Current Block Rules', renderList(), true);
+                    this.Modal.el.querySelector('.picky-modal-body').addEventListener('click', (e) => {
+                        const btn = e.target.closest('button[data-rule]');
+                        if (!btn) return;
+                        const rule = btn.dataset.rule;
+                        if (confirm(`Do you want to delete this rule?\n\n${rule}`)) {
+                            this.Blocker.remove(rule);
+                            this.Modal.el.querySelector('.picky-modal-body').innerHTML = renderList();
+                        }
+                    });
                 },
                 resetBlocks: () => {
                     if (confirm('Delete all block rules for the current site(' + window.location.hostname + ')?')) {

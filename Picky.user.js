@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Picky
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.4
-// @description  A lightweight Web Element Inspector & CSS Selector Tool
+// @version      1.5
+// @description  Lightweight Web Element Inspector & CSS Selector Tool
 // @author       hooray804
 // @license      MPL-2.0
 // @match        *://*/*
