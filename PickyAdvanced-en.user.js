@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.5
+// @version      1.6
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -375,7 +375,7 @@
                     if (selector) {
                         if (confirm(`Do you want to permanently block (hide) the following selector?\n\n${selector}\n\n* "You can unblock it in the "Settings" menu.`)) {
                             this.Blocker.add(selector);
-                            this.end(false);
+                            this.act({ target: { closest: () => ({ dataset: { action: 'reset' } }) } });
                         }
                     } else {
                         alert('This element cannot be selected.');

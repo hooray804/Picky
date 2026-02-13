@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.5
+// @version      1.6
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -375,7 +375,7 @@
                     if (selector) {
                         if (confirm(`다음 선택자를 영구적으로 차단(숨김)하시겠습니까?\n\n${selector}\n\n* "설정" 메뉴에서 차단을 해제할 수 있습니다.`)) {
                             this.Blocker.add(selector);
-                            this.end(false);
+                            this.act({ target: { closest: () => ({ dataset: { action: 'reset' } }) } });
                         }
                     } else {
                         alert('선택할 수 없는 요소입니다.');
