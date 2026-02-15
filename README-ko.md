@@ -10,9 +10,9 @@
 > [!NOTE]
 > **Picky Advanced에는 Picky의 모든 기능이 포함되어 있습니다.** 두 버전을 모두 설치하여 사용하지 마세요.
 
-* [Picky 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 * [Picky Advanced 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
+* [Picky 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 
 ## 1. 주요 기능
 
