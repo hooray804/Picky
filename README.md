@@ -4,6 +4,9 @@ English | [한국어(Korean)](https://github.com/hooray804/Picky/blob/main/READM
 
 Picky is a userscript tool designed for inspecting web elements and extracting CSS selectors for ad-blocking purposes. It allows you to select and analyze elements instantly, even in mobile environments, and generates optimized CSS selectors. You can also view the webpage's source code. Notably, the Advanced version provides a blocking feature that permanently hides selected distracting elements on the site.
 
+> [!IMPORTANT]
+> **Picky (Standard) is no longer receiving updates.** Please switch to the Advanced version to stay up to date with the latest features.
+
 > [!NOTE]
 > **Picky Advanced includes all the features of Picky.** Do not install and use both versions simultaneously.
 
@@ -27,6 +30,7 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 
 | Feature | Picky (Standard) | Picky Advanced |
 | :--- | :--- | :--- |
+| Status | Deprecated (No updates) | Active (Maintained) |
 | **Core Purpose** | Element analysis & CSS extraction | Element analysis & personalized blocking rules |
 | **Element Blocking** | Temporary hide (reset on refresh) | Persistent blocking with saved rules |
 | **Resources** | Low | Relatively high |
@@ -39,7 +43,6 @@ To use this script, you must have a userscript manager extension installed, such
 1. Install a userscript manager.
 2. Click the link for your preferred version below or copy the URL:
     * [Install Picky Advanced (English)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
-    * [Install Picky (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
     * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 3. Click the 'Install' button displayed in your browser or apply it within your userscript manager.
 
