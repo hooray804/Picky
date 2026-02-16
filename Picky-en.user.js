@@ -1,15 +1,14 @@
 // ==UserScript==
-// @name         Picky Advanced
+// @name         Picky
 // @namespace    https://github.com/hooray804/Picky
 // @version      2.0
-// @description  Web Element Inspector & CSS Selector Tool with Ad Block
+// @description  Lightweight Web Element Inspector & CSS Selector Tool
 // @author       hooray804
 // @license      MPL-2.0
 // @match        *://*/*
-// @grant        GM_setValue
-// @grant        GM_getValue
-// @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
-// @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
+// @grant        none
+// @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/Picky-en.user.js
+// @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/Picky-en.user.js
 // @supportURL   https://github.com/hooray804/Picky/issues
 // ==/UserScript==
 
@@ -17,11 +16,11 @@
     'use strict';
 
     const P_ID = 'picky-tool';
-    const P_HOST = 'picky-root';
     const P_HL = 'picky-hl';
     const P_ISO_B = 'picky-iso-body';
     const P_ISO_P = 'picky-iso-path';
     const P_SHIELD = 'picky-shield';
+    const P_HOST = 'picky-root';
 
     let touchMoved = false;
     let initialTouchedEl = null;
@@ -60,70 +59,6 @@
                 stableAttrs: ['data-testid', 'data-cy', 'data-test-id', 'data-test', 'name'],
                 maxClimb: 7,
                 shadowDomSupport: false
-            }
-        },
-        Blocker: {
-            init() {
-                this.apply();
-            },
-            getRules() {
-                const rules = GM_getValue('picky_blocked_rules', {});
-                return rules[window.location.hostname] || [];
-            },
-            add(selector) {
-                if (!selector) return;
-                const rules = GM_getValue('picky_blocked_rules', {});
-                const host = window.location.hostname;
-                if (!rules[host]) rules[host] = [];
-                
-                if (!rules[host].includes(selector)) {
-                    rules[host].push(selector);
-                    GM_setValue('picky_blocked_rules', rules);
-                    this.apply();
-                    return true;
-                }
-                return false;
-            },
-            remove(selector) {
-                const rules = GM_getValue('picky_blocked_rules', {});
-                const host = window.location.hostname;
-                if (rules[host]) {
-                    rules[host] = rules[host].filter(r => r !== selector);
-                    if (rules[host].length === 0) delete rules[host];
-                    GM_setValue('picky_blocked_rules', rules);
-                    this.apply();
-                    return true;
-                }
-                return false;
-            },
-            apply() {
-                const rules = this.getRules();
-                const styleId = 'picky-blocker-style';
-                let style = document.getElementById(styleId);
-                if (!rules.length) {
-                    if (style) style.remove();
-                    return;
-                }
-                
-                if (!style) {
-                    style = document.createElement('style');
-                    style.id = styleId;
-                    document.head.appendChild(style);
-                }
-                style.textContent = rules.join(', ') + ' { display: none !important; }';
-            },
-            reset() {
-                const rules = GM_getValue('picky_blocked_rules', {});
-                if (rules[window.location.hostname]) {
-                    delete rules[window.location.hostname];
-                    GM_setValue('picky_blocked_rules', rules);
-                    const style = document.getElementById('picky-blocker-style');
-                    if (style) style.remove();
-                    alert('Block rules for this site have been reset. Reloading the page.');
-                    location.reload();
-                } else {
-                    alert('No saved block rules found.');
-                }
             }
         },
         
@@ -271,6 +206,7 @@
         },
         injectStylesIntoShadowRoots() {
             const styleContent = `.${P_HL}{outline:2px dotted #ff453a!important;outline-offset:2px;box-shadow:0 0 0 9999px rgba(0,0,0,.4)!important;}`;
+            if (!styleContent) return;
             document.querySelectorAll('*').forEach(el => {
                 if (el.shadowRoot && !el.shadowRoot.getElementById(`${P_ID}-hl-style`)) {
                     const style = document.createElement('style');
@@ -291,33 +227,28 @@
                 document.documentElement.appendChild(host);
             }
             this.ui.host = host;
-
             const shadow = host.attachShadow({ mode: 'open' });
             this.ui.shadow = shadow;
-
             const style = document.createElement('style');
             style.textContent = this.getToolCss();
             shadow.appendChild(style);
-
             this.ui.tool = document.createElement('div'); 
             this.ui.tool.id = P_ID; 
             this.ui.tool.className = this.st.pos; 
             shadow.appendChild(this.ui.tool);
-
             this.ui.shield = document.createElement('div'); 
             this.ui.shield.id = P_SHIELD; 
             shadow.appendChild(this.ui.shield);
-
-            this.ui.tool.addEventListener('click', this.act.bind(this));
-            this.draw();
-            setTimeout(() => this.ui.tool.classList.add('visible'), 50);
-
             this.observer = new MutationObserver(() => {
                 if (!document.documentElement.contains(this.ui.host)) {
                     document.documentElement.appendChild(this.ui.host);
                 }
             });
             this.observer.observe(document.documentElement, { childList: true });
+
+            this.ui.tool.addEventListener('click', this.act.bind(this));
+            this.draw();
+            setTimeout(() => this.ui.tool.classList.add('visible'), 50);
         },
         
         draw() {
@@ -333,32 +264,9 @@
         },
         
         viewFull() { switch(this.st.view) { case 'selected': return this.viewSel(); case 'settings': return this.viewSet(); default: return `<div class="picky-header"><div class="picky-header-title">Element Inspector</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="close">${ICONS.close}</button></div></div><div style="text-align:center; color: var(--pk-on-surf-var); padding: 16px 0;">Tap an element on the page...</div>`; } },
-        viewSel() { const s = this.getSliderCfg(); const slider = `<div id="picky-nav-slider-container"><label for="picky-nav-slider" style="font-size:11px; color:var(--pk-on-surf-var)">Element Navigation (Parent|Child)</label><input type="range" id="picky-nav-slider" min="${s.min}" max="${s.max}" value="${s.val}"></div>`; return `<div class="picky-header"><div class="picky-header-title">Element Selected</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="inspectCode" title="View Related Code">${ICONS.code}</button><button class="picky-icon-button" data-action="showSettings" title="Settings">${ICONS.settings}</button><button class="picky-icon-button" data-action="cycleSize" title="Toggle Mode">${ICONS.modeCycle}</button><button class="picky-icon-button" data-action="close" title="Close">${ICONS.close}</button></div></div><div class="picky-selector-box"><div class="picky-selector-box-title"><span>CSS Selector</span><span class="picky-match-count"></span></div><div class="picky-selector-display"></div></div>${slider}<div class="picky-button-grid" style="grid-template-columns: repeat(6, 1fr); margin-top: 10px; gap: 6px;"><button data-action="selParent">Parent</button><button data-action="selChild">Child</button><button data-action="toggleHide">${this.st.hidden?'Restore':'Hide'}</button><button data-action="permanentBlock" style="color:#fff; background-color:var(--pk-err);">Block</button><button data-action="toggleIsolate">${this.st.isolate?'Join':'Split'}</button><button data-action="selSimilar">Similar</button><button data-action="extractUrl">URL</button><button data-action="extractAttr">Attr</button><button data-action="copyCSS" class="primary">CSS</button><button data-action="copyRule" class="primary">Rule</button><button data-action="reset">Reset</button></div>`; },
+        viewSel() { const s = this.getSliderCfg(); const slider = `<div id="picky-nav-slider-container"><label for="picky-nav-slider" style="font-size:11px; color:var(--pk-on-surf-var)">Element Navigation (Parent|Child)</label><input type="range" id="picky-nav-slider" min="${s.min}" max="${s.max}" value="${s.val}"></div>`; return `<div class="picky-header"><div class="picky-header-title">Element Selected</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="inspectCode" title="View Related Code">${ICONS.code}</button><button class="picky-icon-button" data-action="showSettings" title="Settings">${ICONS.settings}</button><button class="picky-icon-button" data-action="cycleSize" title="Toggle Mode">${ICONS.modeCycle}</button><button class="picky-icon-button" data-action="close" title="Close">${ICONS.close}</button></div></div><div class="picky-selector-box"><div class="picky-selector-box-title"><span>CSS Selector</span><span class="picky-match-count"></span></div><div class="picky-selector-display"></div></div>${slider}<div class="picky-button-grid" style="grid-template-columns: repeat(5, 1fr); margin-top: 10px; gap: 6px;"><button data-action="selParent">Parent</button><button data-action="selChild">Child</button><button data-action="toggleHide">${this.st.hidden?'Restore':'Hide'}</button><button data-action="toggleIsolate">${this.st.isolate?'Join':'Split'}</button><button data-action="selSimilar">Similar</button><button data-action="extractUrl">URL</button><button data-action="extractAttr">Attr</button><button data-action="copyCSS" class="primary">CSS</button><button data-action="copyRule" class="primary">Rule</button><button data-action="reset">Reset</button></div>`; },
         viewMin() { return `<button class="picky-icon-button" data-action="selParent" title="Parent">${ICONS.parent}</button><button class="picky-icon-button" data-action="selChild" title="Child">${ICONS.child}</button><button class="picky-icon-button" data-action="toggleHide" title="${this.st.hidden ? 'Restore' : 'Hide'}">${this.st.hidden ? ICONS.eyeOpen : ICONS.eyeClosed}</button><button class="picky-icon-button" data-action="copyCSS" title="CSS">${ICONS.copy}</button><button class="picky-icon-button" data-action="reset" title="Reset">${ICONS.reset}</button><button class="picky-icon-button" data-action="cycleSize" title="Full Mode">${ICONS.modeFull}</button>`; },
-        viewSet() { 
-            const c = this.st.cfg; 
-            const manual = c.intelligentMode ? 'style="display:none;"' : ''; 
-            return `<div class="picky-header"><button class="picky-icon-button" data-action="showSelected">${ICONS.back}</button><div class="picky-header-title">Settings</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="showSelected">${ICONS.close}</button></div></div>
-            <div class="picky-setting-item"><span>Auto-close after copyingClose</span><label class="picky-switch"><input type="checkbox" data-action="toggleAutoClose" ${this.st.autoClose ? 'checked' : ''}><span class="picky-slider"></span></label></div>
-            <div class="picky-setting-title">Selector Rules</div>
-            <div class="picky-setting-item"><span>Intelligent Mode</span><label class="picky-switch"><input type="checkbox" data-cfg-key="intelligentMode" ${c.intelligentMode ? 'checked' : ''}><span class="picky-slider"></span></label></div>
-            <div class="picky-manual-settings" ${manual}><div class="picky-setting-item"><span>Use ID (#id)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useId" ${c.useId ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Classes (.class)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useClasses" ${c.useClasses ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Order (:nth-of-type)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useNthOfType" ${c.useNthOfType ? 'checked' : ''}><span class="picky-slider"></span></label></div></div>
-            <div class="picky-setting-title">Advanced Features</div>
-            <div class="picky-setting-item"><span>Shadow DOM Support</span><label class="picky-switch"><input type="checkbox" data-cfg-key="shadowDomSupport" ${c.shadowDomSupport ? 'checked' : ''}><span class="picky-slider"></span></label></div>
-            <div class="picky-setting-title">Ad Block Management</div>
-            <div class="picky-button-grid" style="margin-top:8px; grid-template-columns: 1fr 1fr;"><button data-action="showBlockRules">Show Rules</button><button data-action="resetBlocks" style="background-color: var(--pk-err); color: #fff;">Reset Rules</button></div>
-            
-            <div class="picky-setting-title">Developer Tools & UI</div>
-            <div class="picky-button-grid" style="grid-template-columns: repeat(3, 1fr); gap: 6px;">
-                <button data-action="showSource" data-type="html">HTML</button>
-                <button data-action="showSource" data-type="css">CSS</button>
-                <button data-action="showSource" data-type="js">JS</button>
-                <button data-action="showCookies">Cookies</button>
-                <button data-action="showFp">Fingerprinting</button>
-                <button data-action="moveTop">Move to top</button>
-                <button data-action="moveBottom">Move to bottom</button>
-            </div>`; 
-        },
+        viewSet() { const c = this.st.cfg; const manual = c.intelligentMode ? 'style="display:none;"' : ''; return `<div class="picky-header"><button class="picky-icon-button" data-action="showSelected">${ICONS.back}</button><div class="picky-header-title">Settings</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="showSelected">${ICONS.close}</button></div></div><div class="picky-setting-item"><span>Auto-close after copyingClose</span><label class="picky-switch"><input type="checkbox" data-action="toggleAutoClose" ${this.st.autoClose ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-title">Selector Rules</div><div class="picky-setting-item"><span>Intelligent Mode</span><label class="picky-switch"><input type="checkbox" data-cfg-key="intelligentMode" ${c.intelligentMode ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-manual-settings" ${manual}><div class="picky-setting-item"><span>Use ID (#id)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useId" ${c.useId ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Classes (.class)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useClasses" ${c.useClasses ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Order (:nth-of-type)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useNthOfType" ${c.useNthOfType ? 'checked' : ''}><span class="picky-slider"></span></label></div></div><div class="picky-setting-title">Advanced Features</div><div class="picky-setting-item"><span>Shadow DOM Support</span><label class="picky-switch"><input type="checkbox" data-cfg-key="shadowDomSupport" ${c.shadowDomSupport ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-title">개발자 도구</div><div class="picky-button-grid" style="grid-template-columns: repeat(3, 1fr);"><button data-action="showSource" data-type="html">HTML</button><button data-action="showSource" data-type="css">CSS</button><button data-action="showSource" data-type="js">JS</button><button data-action="showCookies">Cookies</button><button data-action="showFp">Fingerprinting</button></div><div class="picky-setting-title">UI 위치 변경</div><div class="picky-button-grid" style="grid-template-columns: repeat(3, 1fr);"><button data-action="moveTop">Move to top</button><button data-action="moveBottom">Move to bottom</button></div>`; },
 
         bindEls() { this.ui.disp = this.ui.tool.querySelector('.picky-selector-display'); this.ui.match = this.ui.tool.querySelector('.picky-match-count'); this.ui.slider = this.ui.tool.querySelector('#picky-nav-slider'); if(this.ui.slider) this.ui.slider.addEventListener('input', this.onSlide.bind(this)); },
         buildPath(el) { this.st.path = []; let curr = el; while (curr && curr.tagName !== 'BODY') { this.st.path.unshift(curr); curr = this.getParent(curr); } },
@@ -419,46 +327,6 @@
                 selChild: () => this.showChildSel(),
                 selSimilar: () => { const selInfo = this.css(this.st.el); const s = selInfo.selector.replace(/:nth-of-type\(\d+\)/g, ''); if (this.ui.disp) this.ui.disp.textContent = s + (selInfo.root instanceof ShadowRoot ? ' (in Shadow DOM)' : ''); this.upd8(); },
                 toggleHide: () => { const { selector, root } = this.st.selInfo; if (!selector) return; if (this.st.hidden) this.restoreHidden(); else this.applyHide(selector, root); this.draw(); },
-                
-                permanentBlock: () => {
-                    const { selector } = this.st.selInfo;
-                    if (selector) {
-                        if (confirm(`Do you want to permanently block (hide) the following selector?\n\n${selector}\n\n* You can unblock it in the "Settings" menu.`)) {
-                            this.Blocker.add(selector);
-                            this.act({ target: { closest: () => ({ dataset: { action: 'reset' } }) } });
-                        }
-                    } else {
-                        alert('This element cannot be selected.');
-                    }
-                },
-                showBlockRules: () => {
-                    const renderList = () => {
-                        const rules = this.Blocker.getRules();
-                        if (rules.length === 0) return '<div style="padding:20px;text-align:center;color:var(--pk-on-surf-var);">No saved block rules found.</div>';
-                        const items = rules.map(r => `
-                            <li style="display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px; border-bottom:1px solid var(--pk-outl);">
-                                <span style="word-break:break-all; font-family:monospace; font-size:11px; flex:1;">${r}</span>
-                                <button data-rule="${r}" style="background-color:var(--pk-err); color:#fff; padding:4px 8px; font-size:11px; border-radius:8px; flex-shrink:0;">Delete</button>
-                            </li>`).join('');
-                        return `<ul class="picky-child-list" style="max-height:50vh; overflow-y:auto; padding:0;">${items}</ul>`;
-                    };
-                    this.Modal.show('Current Block Rules', renderList(), true);
-                    this.Modal.el.querySelector('.picky-modal-body').addEventListener('click', (e) => {
-                        const btn = e.target.closest('button[data-rule]');
-                        if (!btn) return;
-                        const rule = btn.dataset.rule;
-                        if (confirm(`Do you want to delete this rule?\n\n${rule}`)) {
-                            this.Blocker.remove(rule);
-                            this.Modal.el.querySelector('.picky-modal-body').innerHTML = renderList();
-                        }
-                    });
-                },
-                resetBlocks: () => {
-                    if (confirm('Delete all block rules for the current site(' + window.location.hostname + ')?')) {
-                        this.Blocker.reset();
-                    }
-                },
-
                 toggleIsolate: () => this.toggleIso(),
                 copyCSS: () => this.copy(false),
                 copyRule: () => this.copy(true),
@@ -483,6 +351,7 @@
                 while(current) { current.classList.add(P_ISO_P); current = this.getParent(current); }
                 document.documentElement.classList.add(P_ISO_B);
             } else { document.documentElement.classList.remove(P_ISO_B); }
+            if (!document.documentElement) return;
             this.draw();
         },
         copy(asRule = false) {
@@ -555,8 +424,6 @@
         showFp() { let c = "--- Browser/System ---\n"; try { c += `User Agent: ${navigator.userAgent}\nLanguage: ${navigator.language}\nTimezone: ${Intl.DateTimeFormat().resolvedOptions().timeZone}\nHardware Concurrency: ${navigator.hardwareConcurrency || 'N/A'}\nMemory (GB): ${navigator.deviceMemory || 'N/A'}\n\n--- Screen ---\n`; c += `Resolution: ${screen.width}x${screen.height}\nAvailable: ${screen.availWidth}x${screen.availHeight}\nColor Depth: ${screen.colorDepth}\nPixel Ratio: ${devicePixelRatio}\n\n--- Rendering ---\n`; const gl = document.createElement('canvas').getContext('webgl'); const dbg = gl.getExtension('WEBGL_debug_renderer_info'); c += `WebGL Vendor: ${gl.getParameter(dbg.UNMASKED_VENDOR_WEBGL)}\nWebGL Renderer: ${gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)}\n\n`; } catch (e) {} c += "--- Network (Performance API) ---\n"; const r = performance.getEntriesByType('resource'); c += `${r.length} resource(s) requested.\n\n`; r.slice(0, 20).forEach(res => { c += `[${res.initiatorType}] ${res.name} (${Math.round(res.duration)}ms)\n`; }); this.Modal.show('Fingerprinting Info', c); },
         
         run() {
-            if (!document.documentElement) return;
-            this.Blocker.init();
             this.b = { 
                 onPick: this.onPick.bind(this), 
                 onSelStart: this.onSelStart.bind(this), 

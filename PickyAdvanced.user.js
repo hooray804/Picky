@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      1.8
+// @version      2.0
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -581,6 +581,12 @@
             setTimeout(() => { 
                 this.ui.host?.remove(); 
                 document.getElementById(`${P_ID}-global-style`)?.remove(); 
+                document.querySelectorAll('*').forEach(el => {
+                    if (el.shadowRoot) {
+                        const shadowStyle = el.shadowRoot.getElementById(`${P_ID}-hl-style`);
+                        if (shadowStyle) shadowStyle.remove();
+                    }
+                });
                 this.unhl(document.querySelector(`.${P_HL}`)); 
             }, 400);
             delete window.Picky;
