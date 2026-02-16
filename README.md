@@ -31,11 +31,11 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 
 | Feature | Picky (Standard) | Picky Advanced |
 | :--- | :--- | :--- |
-| Status | Deprecated (No updates) | Active (Maintained) |
-| **Core Purpose** | Element analysis & CSS extraction | Element analysis & personalized blocking rules |
-| **Element Blocking** | Temporary hide (reset on refresh) | Persistent blocking with saved rules |
-| **Resources** | Low | Relatively high |
-| **Required Permissions** | `none` | `GM_setValue`, `GM_getValue` |
+| **Status** | Deprecated (No updates) | Active (Maintained) |
+| Core Purpose | Element analysis & CSS extraction | Element analysis & personalized blocking rules |
+| Element Blocking | Temporary hide (reset on refresh) | Persistent blocking with saved rules |
+| Resources | Very Low | Low |
+| Required Permissions | `none` | `GM_setValue`, `GM_getValue` |
 
 ## 3. How to Install
 
