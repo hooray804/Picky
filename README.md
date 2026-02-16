@@ -2,7 +2,7 @@
 
 English | [한국어(Korean)](https://github.com/hooray804/Picky/blob/main/README-ko.md)
 
-Picky is a userscript tool designed for inspecting web elements and extracting CSS selectors for ad-blocking purposes. It allows you to select and analyze elements instantly, even in mobile environments, and generates optimized CSS selectors. You can also view the webpage's source code. Notably, the Advanced version provides a blocking feature that permanently hides selected distracting elements on the site.
+Picky is a userscript tool designed for inspecting web elements and extracting CSS selectors for ad-blocking purposes. It allows you to select and analyze elements instantly, even in mobile environments, and generates optimized CSS selectors. You can also view the webpage's source code. Notably, the Advanced version provides an element zapper feature that permanently hides selected distracting elements on the site.
 
 > [!IMPORTANT]
 > **Picky (Standard) is no longer receiving updates.** Please switch to the Advanced version to stay up to date with the latest features.
