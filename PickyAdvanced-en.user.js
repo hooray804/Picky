@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      2.0
+// @version      2.1
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -339,7 +339,7 @@
             const c = this.st.cfg; 
             const manual = c.intelligentMode ? 'style="display:none;"' : ''; 
             return `<div class="picky-header"><button class="picky-icon-button" data-action="showSelected">${ICONS.back}</button><div class="picky-header-title">Settings</div><div class="picky-header-actions"><button class="picky-icon-button" data-action="showSelected">${ICONS.close}</button></div></div>
-            <div class="picky-setting-item"><span>Auto-close after copyingClose</span><label class="picky-switch"><input type="checkbox" data-action="toggleAutoClose" ${this.st.autoClose ? 'checked' : ''}><span class="picky-slider"></span></label></div>
+            <div class="picky-setting-item"><span>Auto-close after copying</span><label class="picky-switch"><input type="checkbox" data-action="toggleAutoClose" ${this.st.autoClose ? 'checked' : ''}><span class="picky-slider"></span></label></div>
             <div class="picky-setting-title">Selector Rules</div>
             <div class="picky-setting-item"><span>Intelligent Mode</span><label class="picky-switch"><input type="checkbox" data-cfg-key="intelligentMode" ${c.intelligentMode ? 'checked' : ''}><span class="picky-slider"></span></label></div>
             <div class="picky-manual-settings" ${manual}><div class="picky-setting-item"><span>Use ID (#id)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useId" ${c.useId ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Classes (.class)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useClasses" ${c.useClasses ? 'checked' : ''}><span class="picky-slider"></span></label></div><div class="picky-setting-item"><span>Use Order (:nth-of-type)</span><label class="picky-switch"><input type="checkbox" data-cfg-key="useNthOfType" ${c.useNthOfType ? 'checked' : ''}><span class="picky-slider"></span></label></div></div>
