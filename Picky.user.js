@@ -7,6 +7,7 @@
 // @license      MPL-2.0
 // @match        *://*/*
 // @grant        none
+// @homepage     https://github.com/hooray804/Picky
 // @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js
 // @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js
 // @supportURL   https://github.com/hooray804/Picky/issues
