@@ -8,6 +8,7 @@
 // @match        *://*/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @homepage     https://github.com/hooray804/Picky
 // @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @supportURL   https://github.com/hooray804/Picky/issues
