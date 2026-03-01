@@ -18,7 +18,7 @@
     'use strict';
 
     if (window.self !== window.top) {
-        if (window.innerWidth < 200 || window.innerHeight < 200) {
+        if (window.innerWidth < 150 || window.innerHeight < 150) {
             return; 
         }
     }
