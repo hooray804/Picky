@@ -1,13 +1,15 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      2.4.0
+// @version      2.4.1
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
 // @match        *://*/*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM.getValue
 // @homepage     https://github.com/hooray804/Picky
 // @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
