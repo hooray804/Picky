@@ -15,7 +15,7 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 * [Install Picky (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 
-## 1. Key Features
+## Key Features
 
 * **Intelligent CSS Selector Generation**: Recommends the most unique selectors by analyzing IDs, classes, attributes (e.g., data-test), and nth-of-type.
 * **Permanent Element Blocking (Advanced)**: Selecting an element and clicking 'Block' records it in browser storage (GM_setValue), ensuring the element remains hidden even upon return visits. This feature may not work in Safari's Private Browsing mode or with certain userscript managers.
@@ -27,17 +27,17 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 * **Hierarchy Navigation**: Easily navigate and analyze the scope by moving to parent or child elements based on the selected element.
 * **Mobile Optimization**: Provides a minimal mode to reduce screen occupancy and options to change the UI position (top/bottom).
 
-## 2. Version Comparison
+## Version Comparison
 
 | Feature | Picky (Standard) | Picky Advanced |
 | :--- | :--- | :--- |
 | **Status** | Deprecated (No updates) | Active (Maintained) |
 | Core Purpose | Element analysis & CSS extraction | Element analysis & personalized blocking rules |
 | Element Blocking | Temporary hide (reset on refresh) | Persistent blocking with saved rules |
-| Resources | Very Low | Low |
+| Resources | Very Low | Low (Approx. 30MB) |
 | Required Permissions | `none` | `GM_setValue`, `GM_getValue` |
 
-## 3. How to Install
+## How to Install
 
 To use this script, you must have a userscript manager extension installed, such as [Tampermonkey](https://www.tampermonkey.net/) or [Userscripts](https://github.com/quoid/userscripts).
 
@@ -47,7 +47,7 @@ To use this script, you must have a userscript manager extension installed, such
     * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 3. Click the 'Install' button displayed in your browser or apply it within your userscript manager.
 
-## 4. How to Use
+## How to Use
 
 1. After installation, the script will load automatically when you visit a website.
 2. Select an element by clicking or tapping via the Picky UI on the screen.
@@ -56,11 +56,11 @@ To use this script, you must have a userscript manager extension installed, such
 5. **Block Button (Advanced Only)**: Select an ad or distracting element and click this to hide it permanently on that site.
 6. **Reset Button**: Deselects the current element and returns to the initial state.
 
-## 5. License
+## License
 
 This project is licensed under the Mozilla Public License 2.0 (MPL-2.0).
 
-## 6. Screenshots
+## Screenshots
 
 * Picky Main Interface in Korean
 ![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
