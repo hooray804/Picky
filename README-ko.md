@@ -15,7 +15,7 @@
 * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 * [Picky 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky-en.user.js)
 
-## 1. 주요 기능
+## 주요 기능
 
 * **지능형 CSS 선택자 생성**: ID, 클래스, 속성(data-test 등), nth-of-type을 분석하여 가장 고유한 선택자를 추천합니다.
 * **영구적 요소 차단 (Advanced)**: 특정 요소를 선택해 '차단'하면 브라우저 저장소(GM_setValue)에 기록되어, 재방문 시에도 해당 요소가 나타나지 않도록 스타일을 적용합니다. 이 기능은 Safari의 개인정보 보호 브라우징 등에서 작동하지 않을 수 있으며 일부 유저스크립트 관리자의 경우 사용할 수 없습니다.
@@ -27,17 +27,17 @@
 * **계층 구조 탐색**: 선택한 요소를 기준으로 상위(Parent) 또는 하위(Child) 요소로 범위를 쉽게 이동하며 분석할 수 있습니다.
 * **모바일 최적화**: 화면 점유를 최소화하는 미니멀 모드와 위치 변경(상/하단) 기능을 제공합니다.
 
-## 2. 버전 비교
+## 버전 비교
 
 | 기능 | Picky(기본) | Picky Advanced |
 | :--- | :--- | :--- |
 | **지원 상태** | 업데이트 중단됨 | 지속적인 업데이트 |
 | 핵심 용도 | 요소 분석 및 CSS 추출 | 요소 분석 및 맞춤 차단 규칙 적용 |
 | 요소 차단 | 일시적 숨김 (새로고침 시 복구) | 스크립트 내 규칙 저장 및 차단 지속 |
-| 실행 리소스 | 매우 낮음 | 낮음 |
+| 실행 리소스 | 매우 낮음 | 낮음 (약 30MB) |
 | 권한 요구 | `none` | `GM_setValue`, `GM_getValue` |
 
-## 3. 설치 방법
+## 설치 방법
 
 이 스크립트를 사용하려면 [Tampermonkey](https://www.tampermonkey.net/) 또는 [Userscripts](https://github.com/quoid/userscripts)와 같은 유저스크립트 관리자 확장 프로그램이 설치되어 있어야 합니다.
 
@@ -47,7 +47,7 @@
     * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 3. 브라우저에 표시되는 '설치(Install)' 버튼을 클릭하거나 유저스크립트 관리자에서 적용합니다.
 
-## 4. 사용 방법
+## 사용 방법
 
 1. 설치 후 웹사이트에 접속하면 자동으로 스크립트가 로드됩니다.
 2. 화면에 나타나는 Picky UI를 통해 요소를 클릭하거나 탭하여 선택합니다.
@@ -56,11 +56,11 @@
 5. **차단 버튼 (Advanced 전용)**: 광고나 방해 요소를 선택한 후 클릭하면 해당 사이트에서 영구적으로 숨겨집니다.
 6. **리셋 버튼**: 선택을 해제하고 초기 상태로 돌아갑니다.
 
-## 5. License
+## License
 
 이 프로젝트는 Mozilla Public License 2.0 (MPL-2.0)을 따릅니다.
 
-## 6. Screenshots
+## Screenshots
 
 * Picky 기본 화면
 ![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
