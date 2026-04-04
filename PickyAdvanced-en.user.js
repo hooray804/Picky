@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Picky Advanced
 // @namespace    https://github.com/hooray804/Picky
-// @version      2.4.1
+// @version      2.5.0
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
 // @license      MPL-2.0
@@ -65,9 +65,9 @@
             cfg: {
                 useId: true, useClasses: true, classCount: 2, useNthOfType: true,
                 intelligentMode: true,
-                unstableClasses: ['active', 'select', 'focus', 'open', 'js-', 'ui-', 'hover', 'disabled', 'checked', 'selected', '--is-', '_is-'],
-                stableAttrs: ['data-testid', 'data-cy', 'data-test-id', 'data-test', 'name'],
-                maxClimb: 7,
+                unstableClasses: ['active', 'focus', 'select', 'js-', 'ui-', 'hover', 'disabled', 'checked', 'selected', '--is-', '_is-', 'loading', 'transition', 'animating', 'v-enter', 'v-leave'],
+                stableAttrs: ['data-testid', 'data-cy', 'data-test-id', 'data-test', 'name', 'aria-label', 'alt', 'placeholder', 'type'],
+                maxClimb: 8,
                 shadowDomSupport: false
             }
         },
