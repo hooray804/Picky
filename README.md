@@ -34,7 +34,7 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 | **Status** | Deprecated (No updates) | Active (Maintained) |
 | Core Purpose | Element analysis & CSS extraction | Element analysis & personalized blocking rules |
 | Element Blocking | Temporary hide (reset on refresh) | Persistent blocking with saved rules |
-| Resources | Very Low | Low (Approx. 30MB) |
+| Resources | Very Low | Low (Max 30MB) |
 | Required Permissions | `none` | `GM_setValue`, `GM_getValue` |
 
 ## How to Install
