@@ -23,8 +23,7 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
     * **HTML/CSS/JS**: Inspect the code of the selected element and its applied styles.
     * **Cookie Management**: View, edit, or delete cookies for the current page. Due to permission restrictions, some cookies may be excluded on most websites.
     * **Fingerprinting Info**: Displays a summary of system information, including browser User Agent, resolution, and WebGL renderer.
-* **Shadow DOM Support**: Includes features for exploring and injecting styles into elements inside a Shadow Root, which are typically difficult to access with standard selectors. Advanced element selection capabilities are currently under development and compatibility will be expanded in the future.
-* **Hierarchy Navigation**: Easily navigate and analyze the scope by moving to parent or child elements based on the selected element.
+* **Shadow DOM Support**: Includes features for exploring and injecting styles into elements inside a Shadow Root, which are typically difficult to access with standard selectors.
 * **Mobile Optimization**: Provides a minimal mode to reduce screen occupancy and options to change the UI position (top/bottom).
 
 ## Version Comparison
