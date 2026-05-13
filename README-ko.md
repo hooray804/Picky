@@ -46,7 +46,14 @@
     * [Picky Advanced 설치 (한국어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
     * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 3. 브라우저에 표시되는 '설치(Install)' 버튼을 클릭하거나 유저스크립트 관리자에서 적용합니다.
+4. 문제 발생 시 아래의 URL을 복사하여 수동으로 등록합니다. 첫 번째 URL이 한국어 버전입니다.
 
+```
+https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
+```
+```
+https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
+```
 ## 사용 방법
 
 1. 설치 후 웹사이트에 접속하면 자동으로 스크립트가 로드됩니다.
