@@ -46,6 +46,14 @@ To use this script, you must have a userscript manager extension installed, such
     * [Install Picky Advanced (English)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
     * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 3. Click the 'Install' button displayed in your browser or apply it within your userscript manager.
+4. If there’s a problem, copy the URL below and add it manually.
+
+```
+https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
+```
+```
+https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
+```
 
 ## How to Use
 
