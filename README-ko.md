@@ -69,14 +69,14 @@ https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
 
 ## Screenshots
 
-* Picky 기본 화면
-![IMG_2652](https://github.com/user-attachments/assets/ca7ccb8b-7124-4ce8-98b4-5fe50e50384b)
+* Picky Advanced 기본 화면
+![IMG_1](https://github.com/user-attachments/assets/ac251cb6-d4f9-4183-aaa0-c5f9872b1292)
 
 * 페이지 HTML 보기
-![IMG_2651](https://github.com/user-attachments/assets/babd851c-47a0-4190-b734-045af7440812)
+![IMG_2](https://github.com/user-attachments/assets/a42417d0-732f-47bc-852f-1102889512a9)
 
 * Picky Advanced의 설정 화면
-![IMG_2650](https://github.com/user-attachments/assets/095ab8a7-b6e1-47e5-bea0-a70f19410aaa)
+![IMG_3](https://github.com/user-attachments/assets/cbff6a8f-1559-4f7c-a4cc-74b74b4a364d)
 
 * URL 버튼 이용
-![IMG_2646](https://github.com/user-attachments/assets/a4ae14b2-7c0d-4db3-b07d-78daf5586da2)
+![IMG_4](https://github.com/user-attachments/assets/a39f1253-7553-4182-9cb3-3872852b232d)
