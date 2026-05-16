@@ -70,7 +70,7 @@ This project is licensed under the Mozilla Public License 2.0 (MPL-2.0).
 
 ## Screenshots
 
-* Picky Main Interface in Korean
+* Picky Advanced Main Interface in Korean
 ![IMG_1](https://github.com/user-attachments/assets/ac251cb6-d4f9-4183-aaa0-c5f9872b1292)
 
 * View Page HTML
