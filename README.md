@@ -73,10 +73,10 @@ This project is licensed under the Mozilla Public License 2.0 (MPL-2.0).
 * Picky Advanced Main Interface in Korean
 ![IMG_1](https://github.com/user-attachments/assets/0346dc96-66a2-4063-aad3-3b8080bd3805)
 
-* View Page HTML
+* Picky Advanced Settings Screen
 ![IMG_2](https://github.com/user-attachments/assets/03c24810-dcb3-4b64-a0b4-8f32cb50a681)
 
-* Picky Advanced Settings Screen
+* View Page HTML
 ![IMG_3](https://github.com/user-attachments/assets/9c65caf7-adcc-4d77-9f7a-38f8bed0aeed)
 
 * Using the URL Button
