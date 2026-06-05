@@ -72,10 +72,10 @@ https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js
 * Picky Advanced 기본 화면
 ![IMG_1](https://github.com/user-attachments/assets/0346dc96-66a2-4063-aad3-3b8080bd3805)
 
-* 페이지 HTML 보기
+* Picky Advanced의 설정 화면
 ![IMG_2](https://github.com/user-attachments/assets/03c24810-dcb3-4b64-a0b4-8f32cb50a681)
 
-* Picky Advanced의 설정 화면
+* 페이지 HTML 보기
 ![IMG_3](https://github.com/user-attachments/assets/9c65caf7-adcc-4d77-9f7a-38f8bed0aeed)
 
 * URL 버튼 이용
