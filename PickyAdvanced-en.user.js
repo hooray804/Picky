@@ -8,7 +8,6 @@
 // @match        *://*/*
 // @exclude      *://captcha-api.yandex.ru/*
 // @exclude      *://ya.ru/showcaptcha?
-// @exclude      *://mil.ru/*
 // @exclude      *wikipedia.org*
 // @exclude      *icloud.com*
 // @exclude      *hangouts.google.com*
