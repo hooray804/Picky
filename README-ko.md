@@ -15,6 +15,8 @@
 * [Picky Advanced 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced-en.user.js)
 * [Picky 설치 (영어)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky-en.user.js)
 
+[설치 과정에 문제가 있나요?](#설치-방법)
+
 ## 주요 기능
 
 * **지능형 CSS 선택자 생성**: ID, 클래스, 속성(data-test 등), nth-of-type을 분석하여 가장 고유한 선택자를 추천합니다.
