@@ -15,6 +15,8 @@ Picky is a userscript tool designed for inspecting web elements and extracting C
 * [Install Picky Advanced (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js)
 * [Install Picky (Korean)](https://raw.githubusercontent.com/hooray804/Picky/main/Picky.user.js)
 
+[Is there a problem with the installation?](#how-to-install)
+
 ## Key Features
 
 * **Intelligent CSS Selector Generation**: Recommends the most unique selectors by analyzing IDs, classes, attributes (e.g., data-test), and nth-of-type.
