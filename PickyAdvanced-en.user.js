@@ -26,6 +26,7 @@
 // @exclude      *platform.twitter.com*
 // @exclude      *notifications.google.com*
 // @exclude      *google.com/recaptcha/*
+// @exclude      *hcaptcha.com/captcha*
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
