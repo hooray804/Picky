@@ -4,6 +4,7 @@
 // @version      5.5.2
 // @description  Web Element Inspector & CSS Selector Tool with Ad Block
 // @author       hooray804
+// @homepage     https://github.com/hooray804/Picky
 // @license      MPL-2.0
 // @match        *://*/*
 // @exclude      *://captcha-api.yandex.ru/*
@@ -27,6 +28,7 @@
 // @exclude      *notifications.google.com*
 // @exclude      *google.com/recaptcha/*
 // @exclude      *hcaptcha.com/captcha*
+// @run-at       document-end
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
@@ -34,7 +36,6 @@
 // @grant        GM.getValue
 // @grant        GM.xmlHttpRequest
 // @connect      *
-// @homepage     https://github.com/hooray804/Picky
 // @updateURL    https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @downloadURL  https://raw.githubusercontent.com/hooray804/Picky/main/PickyAdvanced.user.js
 // @supportURL   https://github.com/hooray804/Picky/issues
